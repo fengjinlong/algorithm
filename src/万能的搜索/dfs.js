@@ -30,7 +30,7 @@ function dfs(x, y, step) {
   ];
   // 是否到达目标点
   if (x === px && y === py) {
-    if (step < min) {
+    if (step <= min) {
       min = step;
       console.log(book);
       return;
