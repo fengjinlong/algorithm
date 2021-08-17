@@ -1,12 +1,12 @@
-// 单源最短路径 
+// 单源最短路径 O(N)^2 
 
 let e = [];
 // book 记录哪些点已经访问到了 一共 6个city
 let book = [0, 0, 0, 0, 0, 0, 0];
 
-for (let i = 1; i <= 6; i++) {
+for (let i = 1; i <= 4; i++) {
   e[i] = [];
-  for (let j = 1; j <= 6; j++) {
+  for (let j = 1; j <= 4; j++) {
 
     if (i === j) {
       e[i][j] = 0;
@@ -16,22 +16,28 @@ for (let i = 1; i <= 6; i++) {
   }
 }
 // 有向图
-e[1][2] = 1
-e[1][3] = 12
-e[2][3] = 9
-e[2][4] = 3
-e[3][5] = 5
-e[4][3] = 4
-e[4][5] = 13
-e[4][6] = 15
-e[5][6] = 4
-console.log(e)
+// e[1][2] = 1
+// e[1][3] = 12
+// e[2][3] = 9
+// e[2][4] = 3
+// e[3][5] = 5
+// e[4][3] = 4
+// e[4][5] = 13
+// e[4][6] = 15
+// e[5][6] = 4
 
+e[1][4] = 9
+e[4][3] = 8
+e[1][2] = 5
+e[2][4] = 6
+e[1][3] = 7
+console.log(e)
+console.time('qq')
 // 找 1 到各个点的最近路径
 // 估计最近值
 const dis = []
-for (let i = 1; i <= 6; i++) {
-    dis[i] = e[2][i]
+for (let i = 1; i <= 4; i++) {
+    dis[i] = e[1][i]
 }
 book[1] = 1
 let min; 
@@ -46,16 +52,16 @@ let min;
  * 
 */
 let u;
-for (let i = 1; i <=6; i++) {
+for (let i = 1; i <=4; i++) {
     min = 999999
-    for (let j = 1; j <= 6; j++) {
+    for (let j = 1; j <= 4; j++) {
         if (book[j] === 0 && dis[j] < min) {
             min = dis[j]
             u = j
         }
     }
     book[u] = 1;
-    for(let v = 1; v <= 6; v++) {
+    for(let v = 1; v <= 4; v++) {
         if (dis[v] > dis[u] + e[u][v]) {
             dis[v] = dis[u] + e[u][v]
         }
@@ -67,7 +73,7 @@ for (let i = 1; i <=6; i++) {
 // i -> 2
 // dij -> 0 1 8 4 17 19
 console.log(dis)
-
+console.timeEnd('qq')
 
 
 
