@@ -2,23 +2,21 @@
 const Arr = [
   [
     "#",
-    ,
     "#",
-    ,
     "#",
-    ,
+
     "#",
-    ,
+
     "#",
-    ,
+
     "#",
-    ,
+
     "#",
-    ,
+
     "#",
-    ,
+
     "#",
-    ,
+
     "#",
     ".",
     "#",
@@ -39,6 +37,7 @@ const Arr = [
   ["#", "G", "G", ".", "G", "G", "G", "#", "G", ".", "G", "G", "#"],
   ["#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"],
 ];
+
 function getNum(i, j) {
   let sum, x, y;
   sum = 0;
@@ -114,7 +113,10 @@ let next = [
 
 // 广度优先
 function booBfs() {
-  const que = [{ x: 0, y: 0 }];
+  const que = [{
+    x: 0,
+    y: 0
+  }];
   let head = 0;
   let tail = 0;
   let sum = 0;
@@ -192,4 +194,4 @@ function booDfs(i, j) {
     }
   }
 }
-booDfs(3,3)
+booDfs(3, 3)
