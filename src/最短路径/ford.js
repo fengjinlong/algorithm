@@ -1,9 +1,7 @@
 // 解决负边权
 
-
 let Dian = 5
 let Bian = 5
-
 
 const u = [1, 0, 0, 3, 2]
 const v = [2, 1, 4, 4, 3]
