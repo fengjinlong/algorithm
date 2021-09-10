@@ -1,5 +1,5 @@
 // 击鼓传花
-class Queue {
+export class Queue {
   constructor() {
     this.count = 0;
     this.lowestCount = 0;
@@ -13,7 +13,6 @@ class Queue {
   // del
   dequeue() {
     if (this.isEmpty()) {
-      console.log(99999)
       return undefined;
     }
     const result = this.items[this.lowestCount]
@@ -42,12 +41,7 @@ class Queue {
   }
 }
 
-const queue = new Queue()
-queue.enqueue(1)
-queue.enqueue(2)
-queue.dequeue()
-// console.log(queue.isEmpty())
-console.log(queue)
+
 
 function beat(itemsList, num) {
   // 队列
@@ -73,8 +67,8 @@ function beat(itemsList, num) {
     winner: queue.dequeue()
   }
 }
-let r = beat([1,2],3)
-console.log(r)
+// let r = beat([1,2],3)
+// console.log(r)
 
 
 
