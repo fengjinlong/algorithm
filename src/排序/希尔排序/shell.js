@@ -21,6 +21,5 @@ const shellSort = (arr) => {
   console.log(arr)
 
 }
-
-const aa = [1, 8, 2, 7, 3, 6, 4, 9,5]
+const aa = [10, 8, 2, 7, 3, 6, 4, 9, 5, 1]
 shellSort(aa)
