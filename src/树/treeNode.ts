@@ -14,6 +14,11 @@ const BinarySearchTree = function () {
       insertNode(root, newNode)
     }
   }
+  this.min = () => {
+    return minNode(root)
+  }
+  this.max = () => maxNode(root)
+  this.search = (searchKey) => searchNode(searchKey,root)
   this.toString = () => {
     console.log(JSON.stringify(root))
   }
@@ -71,20 +76,55 @@ const insertNode = (root, newNode) => {
   }
 }
 let t = new BinarySearchTree()
-t.insert(1)
+t.insert(9)
 t.insert(7)
 t.insert(2)
 t.insert(5)
 t.insert(4)
 t.insert(6)
 t.insert(3)
-t.toString()
+// t.toString()
+// t.min()
+// t.max()
+t.search(5)
 
 let cb = (k) => {
   console.log(k)
 }
 // t.inOrderTraverse(cb)
 t.preOrderTraverse(cb)
-console.log('---')
+// console.log('---')
 t.postOrderTraverse(cb)
+
+function minNode(root: any) {
+  let current = root
+  while(current !== null && current.left !== null) {
+    current = current.left
+  }
+  console.log('minKey: ', current.key, current)
+  return current
+}
+
+function maxNode(root: any) {
+  let current = root
+  if (current !== null && current.right !== null) {
+    current = current.right
+  }
+  console.log('maxKey: ', current.key)
+  return current
+}
+
+
+
+function searchNode(searchKey: any, node: any) {
+  if(node === null) return false
+  if (searchKey > node.key) {
+    searchNode(searchKey, node.right)
+  } else if (searchKey < node.key) {
+    searchNode(searchKey, node.left)
+  } else {
+    console.log('find it !')
+    return true
+  }
+}
 // console.log(t)

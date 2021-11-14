@@ -20,15 +20,25 @@ function deepCopy(obj) {
 
 
 // 面试终极版本
+// 判断是 obj function 且不是  null
 const isComplexDataType = obj => {
   return (typeof obj === 'object' || typeof obj === 'function') && obj !== null
 }
+
 const deepClone = function (obj, hash = new WeakMap()) {
   //如果成环了,参数obj = obj.loop = 最初的obj 会在WeakMap中找到第一次放入的obj提前返回第一次放入WeakMap的cloneObj
-  if (hash.has(obj)) return hash.get(obj)
+  if (hash.has(obj)) {
+    return hash.get(obj)
+  }
 
-  let type = [Date, RegExp, Set, Map, WeakMap, WeakSet]
-  if (type.includes(obj.constructor)) return new obj.constructor(obj)
+  let type = [Date, RegExp, Set, Map]
+  // let type = [Date, RegExp, Set, Map, WeakMap, WeakSet]
+  // WeakMap, WeakSet 存在疑义，暂时不考虑
+  // Object 类型不能实现深克隆 
+  // Number String Boolean 类型可以 也可以放进数组吧？那为啥不放进去呢？
+  if (type.includes(obj.constructor)) {
+    return new obj.constructor(obj)
+  } 
 
   //遍历传入参数所有键的特性
   let allDesc = Object.getOwnPropertyDescriptors(obj) 
