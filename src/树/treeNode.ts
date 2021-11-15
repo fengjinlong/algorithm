@@ -85,11 +85,13 @@ const insertNode = (root, newNode) => {
   }
 }
 let t = new BinarySearchTree()
-t.insert(7)
-t.insert(5)
 t.insert(9)
+t.insert(4)
+t.insert(10)
 t.insert(2)
 t.insert(6)
+t.insert(5)
+t.insert(8)
 
 t.toString()
 // t.min()
@@ -102,7 +104,7 @@ let cb = k => {
 // t.inOrderTraverse(cb)
 // t.preOrderTraverse(cb)
 // t.postOrderTraverse(cb)
-t.remove(5)
+t.remove(4)
 // t.remove(7)
 // t.remove(6)
 t.toString()
@@ -159,16 +161,18 @@ function removeNode(node: any, key: any, self) {
     return node
   }
   if (node.left === null) {
-    node = node.right
+    parent[branch] = node.right
     return node
   } else if (node.right === null) {
-    node = node.left
+    parent[branch] = node.left
     return node
   }
-
-  let aux = self.min(node.right)
+  console.log('right')
+console.log(node.right)
+  let aux = minNode(node.right)
   node.key = aux.key
   node.right = removeNode(node,aux.key,self)
+  // parent[branch] = removeNode(node,aux.key,self)
   return node
   // parent[branch] = null
 }
@@ -208,3 +212,4 @@ function findParentBranch(childNodeKey, root) {
     return obj
   }
 }
+// 有点问题！！！
