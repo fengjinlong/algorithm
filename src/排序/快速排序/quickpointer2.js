@@ -1,3 +1,5 @@
+// 快速排序  数组方式
+
 const arr = [1,7,2,6,4,9,5];
 function quick(left, right) {
   let i = left
@@ -24,10 +26,8 @@ function quick(left, right) {
 
   quick(left, i-1);
   quick(i+1, right);
-  console.log(arr);
   
-  // quick(_left, _right)
 }
 
 quick(0, 6)
-
+console.log(arr);

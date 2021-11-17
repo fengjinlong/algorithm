@@ -1,6 +1,6 @@
 
-var arr = [3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48];
-const quickSort = arr => {
+var arr1 = [3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48];
+const quickSort1 = arr => {
   if (arr.length <= 1) {
     return arr
   }
@@ -20,5 +20,5 @@ const quickSort = arr => {
   return quickSort(left).concat(middleVal, quickSort(right))
 }
 
-let a:any = quickSort(arr)
+let a:any = quickSort(arr1)
 console.log(a)
