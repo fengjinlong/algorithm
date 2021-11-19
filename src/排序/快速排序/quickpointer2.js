@@ -1,13 +1,13 @@
 // 快速排序  数组方式
 
-const arr = [1,7,2,6,4,9,5];
+const arr = [3,1,4,2,5];
 function quick(left, right) {
   let i = left
   let j = right
   if (i > j) {
     return
   }
-  let tem = arr[i];
+  let tem = arr[left];
   while (i < j) {
     while(tem <= arr[j] && i < j) {
       j--
@@ -29,5 +29,5 @@ function quick(left, right) {
   
 }
 
-quick(0, 6)
+quick(0, 4)
 console.log(arr);
