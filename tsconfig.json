@@ -1,0 +1,13 @@
+{
+  "include": ["src"],
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "esModuleInterop": true, // important!
+    "target": "esnext",
+    "strict": true,
+    "declaration": true,
+    "sourceMap": true
+  }
+}
