@@ -1,4 +1,4 @@
-const fun = arr => {
+export const fun = (arr: any[]) => {
   if(arr.length === 0) return
   for(let i = 0; i < arr.length; i++) {
     for (let j = i; j < arr.length; j++) {
