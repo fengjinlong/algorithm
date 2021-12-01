@@ -6,7 +6,7 @@
     "noUnusedLocals": true,
     "esModuleInterop": true, // important!
     "target": "esnext",
-    "strict": true,
+    // "strict": true,
     "declaration": true,
     "sourceMap": true
   }
