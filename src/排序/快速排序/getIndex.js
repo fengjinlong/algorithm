@@ -1,3 +1,12 @@
+/**
+ * @description
+ * @author Werewolf
+ * @date 2021-12-17
+ * @param {*} arr
+ * @param {*} left
+ * @param {*} right
+ * @return {*} 
+ */
 const quickSort = (arr, left, right) => {
 	let len = arr.length,
 		partitionIndex;
