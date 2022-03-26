@@ -7,7 +7,6 @@
  */
 
 /**
- * load 只从新发送一次
  * myGetData 发送几次用户自定义
  */
 function getData() {

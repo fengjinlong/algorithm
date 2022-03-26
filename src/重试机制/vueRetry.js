@@ -1,5 +1,4 @@
 /**
- * load 只从新发送一次
  * myGetData 发送几次用户自定义
  */
 function getData() {
@@ -17,7 +16,25 @@ function getData() {
   });
   return p;
 }
-function load(onError) {
+
+// 失败后，重复请求直到成功
+function loadToResolve(onError) {
+  return new Promise((resolve, reject) => {
+    function again() {
+      let p = getData();
+      return p.catch((err) => {
+        return new Promise((resolve, reject) => {
+          const retry = () => resolve(again());
+          onError(retry);
+        });
+      });
+    }
+    again();
+  });
+}
+// 失败后，只重复1次请求
+
+function loadOneTimes(onError) {
   let p = getData();
   return p.catch((err) => {
     return new Promise((resolve, reject) => {
@@ -26,7 +43,7 @@ function load(onError) {
     });
   });
 }
-load((retry) => {
+loadOneTimes((retry) => {
   retry();
 }).then(
   (res) => {
