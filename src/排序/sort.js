@@ -37,22 +37,6 @@ function quickSort(arr) {
 // console.log(a);
 
 // 插入排序
-function insertSort1(arr) {
-  let len = arr.length;
-  let current;
-  let prev;
-  for (let i = 1; i < len; i++) {
-    prev = i - 1;
-    current = arr[i];
-    while (prev >= 0 && arr[prev] > current) {
-      arr[prev + 1] = arr[prev];
-      prev--;
-    }
-    arr[prev + 1] = current;
-  }
-  return arr;
-}
-console.log(insertSort(a));
 
 let arr = [6, 3, 2, 1];
 function insertSort(arr) {
@@ -87,3 +71,61 @@ function insertSort(arr) {
   }
   return arr;
 }
+// 选择排序
+function selectSort(array) {
+  const len = array.length;
+  let temp;
+  let minIndex;
+  for (let i = 0; i < len - 1; i++) {
+    minIndex = i;
+    for (let j = i + 1; j < len; j++) {
+      if (array[j] <= array[minIndex]) {
+        minIndex = j;
+      }
+    }
+    temp = array[i];
+    array[i] = array[minIndex];
+    array[minIndex] = temp;
+  }
+  return array;
+}
+
+// 堆排序
+var a = [1, 3, 6, 3, 23, 76, 1, 34, 222, 6, 456, 221];
+
+function heap_sort(arr) {
+  var len = arr.length;
+  var k = 0;
+
+  function swap(i, j) {
+    var temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
+
+  function max_heapify(start, end) {
+    var dad = start;
+    var son = dad * 2 + 1;
+    if (son >= end) return;
+    if (son + 1 < end && arr[son] < arr[son + 1]) {
+      son++;
+    }
+
+    if (arr[dad] <= arr[son]) {
+      swap(dad, son);
+      max_heapify(son, end);
+    }
+  }
+
+  for (var i = Math.floor(len / 2) - 1; i >= 0; i--) {
+    max_heapify(i, len);
+  }
+
+  for (var j = len - 1; j > k; j--) {
+    swap(0, j);
+    max_heapify(0, j);
+  }
+  return arr;
+}
+
+heap_sort(a); // [1, 1, 3, 3, 6, 6, 23, 34, 76, 221, 222, 456]
