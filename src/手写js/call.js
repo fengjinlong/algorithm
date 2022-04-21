@@ -20,3 +20,12 @@ Funciton.prototype.call2 = (ctx, ...arg) => {
   delete ctx.fn;
   return result;
 }
+Function.prototype.call3 = (ctx, ...arg) => {
+  ctx = ctx ? Object(ctx) : window;
+  ctx.fn = this
+  let result = ctx.fn(...arg);
+  delete ctx.fn;
+  return result;
+}
+
+

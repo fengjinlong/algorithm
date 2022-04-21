@@ -16,6 +16,23 @@ function deepCopy(obj) {
     return obj;
   }
 }
+function deepCopy2(obj) {
+  if (typeof obj === "object") {
+    let newObj = [];
+    if (newObj.constructor === Array) {
+      obj.forEach((ele) => {
+        newObj.push(ele);
+      });
+    } else {
+      for (let i in obj) {
+        newObj[i] = deepCopy(obj[i]);
+      }
+    }
+    return newObj;
+  } else {
+    return obj;
+  }
+}
 
 // 面试终极版本
 // 判断是 obj function 且不是  null
