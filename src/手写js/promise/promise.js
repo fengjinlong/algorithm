@@ -42,6 +42,7 @@ function Promise1(executor) {
 function resolvePromise(promise2, x, resolve, reject) {
   var then;
   var thenCalledOrThrow = false;
+  // 循环引用
   if (promise2 === x) {
     return reject(new TypeError("Chaining cycle detected for promise!"));
   }
