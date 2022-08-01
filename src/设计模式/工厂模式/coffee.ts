@@ -10,11 +10,10 @@ abstract class Coffee {
 }
 class Bitter extends Coffee {}
 class Sweet extends Coffee {}
-
+// 核心工厂类。不在创造产品类
 abstract class CreateCoffeeFactory {
   abstract create(): Coffee;
 }
-
 class CreateBitterCoffeeFactory extends CreateCoffeeFactory {
   create(): Coffee {
     return new Bitter("bitter");
@@ -25,9 +24,5 @@ class CreateSweetCoffeeFactory extends CreateCoffeeFactory {
     return new Sweet("sweet");
   }
 }
-let s = new CreateSweetCoffeeFactory();
-console.log("s", s);
-
-const ss = s.create();
-console.log("ss", ss);
-ss.getName();
+let sweetfactory = new CreateSweetCoffeeFactory();
+const sweet = sweetfactory.create();
