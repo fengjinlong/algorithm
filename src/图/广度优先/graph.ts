@@ -1,3 +1,4 @@
+import { dfs } from "../深度优先/dfs";
 import { bfs } from "./bfs";
 import Dictionary from "./dictionary";
 
@@ -59,7 +60,7 @@ class Graph {
   }
 }
 
-const graph = new Graph();
+export const graph = new Graph();
 const myVertices = ["A", "B", "C", "D", "E", "F", "G", "H", "I"];
 for (let i = 0; i < myVertices.length; i++) {
   const el = myVertices[i];
@@ -77,7 +78,7 @@ graph.addEdge("B", "F");
 graph.addEdge("E", "I");
 
 // 展示
-console.log("graph", graph.toString());
+// console.log("graph", graph.toString());
 // A -> B C D
 // B -> A E F
 // C -> A D G
@@ -100,3 +101,14 @@ bfs(graph, myVertices[0], cb);
 // Visited vertex: G
 // Visited vertex: H
 // Visited vertex: I
+
+dfs(graph, cb);
+// Visited vertex: A
+// Visited vertex: B
+// Visited vertex: E
+// Visited vertex: I
+// Visited vertex: F
+// Visited vertex: C
+// Visited vertex: D
+// Visited vertex: G
+// Visited vertex: H
