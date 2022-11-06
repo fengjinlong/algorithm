@@ -1,6 +1,6 @@
 // 右边变量的prototype 在左边变量的原型链上
 function myInstanceof(left, right) {
-  let prototype = right.prototype
+  let prototype = right.prototype;
   left = left.__proto__;
   while (true) {
     if (left === null || left === undefined) {
@@ -9,12 +9,24 @@ function myInstanceof(left, right) {
     if (prototype === left) {
       return true;
     }
-    left = left.__proto__
+    left = left.__proto__;
   }
 }
 
-function A () {};
+function ins(left, right) {
+  let prototype = right.prototype;
+  left = left.__proto__;
+  while (1) {
+    if (left === null || left === undefined) {
+      return false;
+    }
+    if (prototype === left) {
+      return true;
+    }
+    left = left.__proto__;
+  }
+}
+function A() {}
 let a = new A();
-let r = myInstanceof(a, A)
-console.log(r)
-
+let r = myInstanceof(a, A);
+console.log(r);

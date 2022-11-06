@@ -20,7 +20,7 @@ const deepCopy = (obj, hash = new WeakMap()) => {
   if (hash.has(obj)) return hash.get(obj);
   let type = [Date, RegExp, Set, Map];
   if (type.includes(obj.constructor)) {
-    return new obj.constructor(type);
+    return new Object.prototype.constructor(obj);
   }
   // getOwnPropertyDescriptor 自有属性对应的属性描述符。直接赋予该对象的属性，不需要从原型链上进行查找的属性
   /**
