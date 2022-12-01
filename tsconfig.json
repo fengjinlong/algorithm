@@ -1,5 +1,5 @@
 {
-  "include": ["src"],
+  "include": ["src", "1.js"],
   "compilerOptions": {
     "module": "commonjs",
     "noImplicitReturns": true,
